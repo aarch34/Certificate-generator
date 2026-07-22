@@ -278,9 +278,9 @@ export default function Home() {
 
               {/* Certificate scaled preview wrapper */}
               <div 
-                className="w-full max-w-[1024px] flex items-start justify-center overflow-hidden rounded-xl shadow-2xl border-2 border-[#d4af37]/40"
+                className="w-full max-w-[1024px] flex items-center justify-center overflow-hidden rounded-xl shadow-2xl border-2 border-[#d4af37]/40 py-2 bg-[#040906]"
                 style={{ 
-                  height: `${scaledHeight}px`,
+                  height: `${scaledHeight + 16}px`,
                 }}
               >
                 <CertificateTemplate ref={printRef} name={validatedName} scale={certificateScale} fontStyle={fontStyle} />

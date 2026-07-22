@@ -44,15 +44,26 @@ export const CertificateControls: React.FC<CertificateControlsProps> = ({
     setStatusMessage({ text: 'Generating PNG image...', type: '' });
 
     try {
-      // Find the element to print
       const element = certificateRef.current;
 
-      // Force high resolution options
       const canvas = await html2canvas(element, {
-        scale: 3, // render at 3x scale for ultra-sharp print resolution
+        scale: 3,
         useCORS: true,
         backgroundColor: '#ffffff',
         logging: false,
+        windowWidth: 1024,
+        windowHeight: 723,
+        onclone: (clonedDoc) => {
+          const clonedArea = clonedDoc.getElementById('yodha-certificate-print-area');
+          if (clonedArea) {
+            clonedArea.style.transform = 'none';
+            if (clonedArea.parentElement) {
+              clonedArea.parentElement.style.transform = 'none';
+              clonedArea.parentElement.style.width = '1024px';
+              clonedArea.parentElement.style.height = '723px';
+            }
+          }
+        },
       });
 
       const imgData = canvas.toDataURL('image/png');
@@ -80,12 +91,24 @@ export const CertificateControls: React.FC<CertificateControlsProps> = ({
     try {
       const element = certificateRef.current;
 
-      // Render DOM element to canvas at high scale
       const canvas = await html2canvas(element, {
-        scale: 3, // high-res canvas
+        scale: 3,
         useCORS: true,
         backgroundColor: '#ffffff',
         logging: false,
+        windowWidth: 1024,
+        windowHeight: 723,
+        onclone: (clonedDoc) => {
+          const clonedArea = clonedDoc.getElementById('yodha-certificate-print-area');
+          if (clonedArea) {
+            clonedArea.style.transform = 'none';
+            if (clonedArea.parentElement) {
+              clonedArea.parentElement.style.transform = 'none';
+              clonedArea.parentElement.style.width = '1024px';
+              clonedArea.parentElement.style.height = '723px';
+            }
+          }
+        },
       });
 
       const imgData = canvas.toDataURL('image/jpeg', 0.95);

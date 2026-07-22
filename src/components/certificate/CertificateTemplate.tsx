@@ -52,12 +52,10 @@ export const CertificateTemplate = forwardRef<HTMLDivElement, CertificateTemplat
 
     return (
       <div
-        className="relative overflow-hidden select-none bg-white shadow-2xl transition-all duration-300"
+        className="relative overflow-hidden select-none bg-white shadow-2xl transition-all duration-300 rounded-lg"
         style={{
-          width: '1024px',
-          height: '723px',
-          transform: `scale(${scale})`,
-          transformOrigin: 'top center',
+          width: `${1024 * scale}px`,
+          height: `${723 * scale}px`,
           margin: '0 auto',
         }}
       >
@@ -65,8 +63,13 @@ export const CertificateTemplate = forwardRef<HTMLDivElement, CertificateTemplat
         <div
           ref={ref}
           id="yodha-certificate-print-area"
-          className="relative w-full h-full bg-white"
-          style={{ width: '1024px', height: '723px' }}
+          className="relative bg-white"
+          style={{
+            width: '1024px',
+            height: '723px',
+            transform: `scale(${scale})`,
+            transformOrigin: 'top left',
+          }}
         >
           {/* Base Certificate Background Image */}
           <img
@@ -81,8 +84,8 @@ export const CertificateTemplate = forwardRef<HTMLDivElement, CertificateTemplat
             style={{
               left: '320px',
               width: '665px',
-              top: '265px',
-              height: '130px',
+              top: '255px',
+              height: '125px',
             }}
           >
             <span
@@ -90,7 +93,7 @@ export const CertificateTemplate = forwardRef<HTMLDivElement, CertificateTemplat
               style={{
                 fontFamily: getFontFamily(),
                 ...fontSizeStyle,
-                lineHeight: 1.2,
+                lineHeight: 1.1,
                 wordBreak: 'break-word',
                 maxHeight: '100%',
                 color: '#d4af37',
