@@ -51,7 +51,7 @@ export const CertificateControls: React.FC<CertificateControlsProps> = ({
       const canvas = await html2canvas(element, {
         scale: 3, // render at 3x scale for ultra-sharp print resolution
         useCORS: true,
-        backgroundColor: '#fcfbf7',
+        backgroundColor: '#ffffff',
         logging: false,
       });
 
@@ -84,7 +84,7 @@ export const CertificateControls: React.FC<CertificateControlsProps> = ({
       const canvas = await html2canvas(element, {
         scale: 3, // high-res canvas
         useCORS: true,
-        backgroundColor: '#fcfbf7',
+        backgroundColor: '#ffffff',
         logging: false,
       });
 
